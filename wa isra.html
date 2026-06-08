@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Isra ❤️</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Segoe UI',sans-serif;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+}
+
+.envelope{
+    position:relative;
+    width:280px;
+    height:180px;
+    background:#fff;
+    margin:auto;
+    cursor:pointer;
+    border-radius:10px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.flap{
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:0;
+    border-left:140px solid transparent;
+    border-right:140px solid transparent;
+    border-top:100px solid #ff6b81;
+    transform-origin:top;
+    transition:1s;
+    z-index:2;
+}
+
+.letter{
+    position:absolute;
+    left:10px;
+    top:20px;
+    width:260px;
+    height:140px;
+    background:white;
+    border-radius:8px;
+    transition:1s;
+    z-index:1;
+}
+
+.open .flap{
+    transform:rotateX(180deg);
+}
+
+.open .letter{
+    transform:translateY(-150px);
+}
+
+button{
+    margin-top:25px;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    background:#ff4d6d;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.message{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:white;
+    width:85%;
+    max-width:600px;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    display:none;
+    animation:fadeIn 1s;
+}
+
+.message h1{
+    color:#ff4d6d;
+}
+
+.message p{
+    text-align:justify;
+    line-height:1.8;
+    color:#444;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translate(-50%,-40%);
+    }
+    to{
+        opacity:1;
+        transform:translate(-50%,-50%);
+    }
+}
+
+.hearts{
+    position:absolute;
+    color:white;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="envelope" id="envelope">
+        <div class="flap"></div>
+        <div class="letter"></div>
+    </div>
+
+    <button onclick="showLetter()">
+        Baca Perasaanku ❤️
+    </button>
+</div>
+
+<div class="message" id="message">
+    <h1>Untuk Isra ❤️</h1>
+
+    <p>
+        Hai Isra,
+    </p>
+
+    <p>
+        Ada sesuatu yang sudah sangat lama kusimpan dalam diam.
+        Mungkin kamu tidak pernah menyadarinya, atau mungkin aku
+        memang terlalu pandai menyembunyikannya.
+    </p>
+
+    <p>
+        Sejak pertama kali mengenalmu, ada perasaan yang perlahan
+        tumbuh dan menetap di dalam hatiku. Aku menyukai caramu
+        tersenyum, caramu berbicara, dan bahkan hal-hal sederhana
+        tentang dirimu yang mungkin tidak pernah kamu anggap istimewa.
+    </p>
+
+    <p>
+        Namun hingga hari ini, aku tetap memilih diam.
+        Bukan karena perasaanku tidak cukup besar, tetapi karena
+        keberanianku tidak pernah sebesar perasaanku.
+    </p>
+
+    <p>
+        Aku takut jika kejujuranku justru membuat semuanya berubah.
+        Aku takut kehilangan kesempatan untuk tetap melihatmu,
+        meskipun hanya sebagai seseorang yang mengenalmu dari jauh.
+    </p>
+
+    <p>
+        Jadi selama ini aku hanya memendamnya,
+        menyimpan namamu dalam doa,
+        dan berharap suatu hari nanti aku memiliki keberanian
+        untuk mengatakan semua ini secara langsung.
+    </p>
+
+    <p>
+        Jika suatu saat kamu membaca surat ini,
+        ketahuilah bahwa pernah ada seseorang yang diam-diam
+        menyimpan perasaan untukmu begitu lama.
+    </p>
+
+    <p>
+        Dan orang itu adalah aku.
+    </p>
+
+    <p style="text-align:right;">
+        ❤️ Untuk Isra
+    </p>
+</div>
+
+<script>
+const envelope = document.getElementById("envelope");
+
+envelope.addEventListener("click",()=>{
+    envelope.classList.toggle("open");
+});
+
+function showLetter(){
+    document.getElementById("message").style.display="block";
+}
+
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("hearts");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (15 + Math.random()*25) + "px";
+    heart.style.animationDuration = (4 + Math.random()*4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },7000);
+}
+
+setInterval(createHeart,500);
+</script>
+
+</body>
+</html>
